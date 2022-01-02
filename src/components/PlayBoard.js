@@ -2,13 +2,8 @@ import {StyleSheet, Text, View} from "react-native";
 import React, {useState} from "react";
 import { Entypo, Fontisto } from '@expo/vector-icons';
 import Cell from "./Cell";
-import { setWarningFilter } from "react-native/Libraries/LogBox/Data/LogBoxData";
 
-export default function PlayBoard({currentPlayer, setCurrentPlayer, setGameOver, gameOver, icons, setIcons, gameState, setGameState }){
-
-    
-    
-    
+export default function PlayBoard({currentIcon, setCurrentIcon, setGameOver, gameOver, setDrawStatus, icons, setIcons, gameState, setGameState }){
 
     const winConditions = [
         [0, 1, 2],
@@ -27,9 +22,8 @@ export default function PlayBoard({currentPlayer, setCurrentPlayer, setGameOver,
         let gState = gameState;
 
         if(gState[i] === "" && !gameOver){
-            gState[i] = currentPlayer;
+            gState[i] = currentIcon;
             setGameState(gState);
-
             redoIcons(gameState);
             checkForWin(gameState);
         }
@@ -46,11 +40,11 @@ export default function PlayBoard({currentPlayer, setCurrentPlayer, setGameOver,
         setIcons(newIcons);
     }
 
-    function changeActivePlayer(){
-        if(currentPlayer === "x"){
-            setCurrentPlayer("o");
+    function changeActiveIcon(){
+        if(currentIcon === "x"){
+            setCurrentIcon("o");
         }else{
-            setCurrentPlayer("x");
+            setCurrentIcon("x");
         }
     }
 
@@ -67,13 +61,20 @@ export default function PlayBoard({currentPlayer, setCurrentPlayer, setGameOver,
             if (a === b && b === c) {
                 won = true;
                 break
-            } 
+            }
         }
+        
 
         if(won){
             setGameOver(true)
-        }else{
-            changeActivePlayer();
+            return;
+        }
+        if(!gameState.includes("")){
+            setDrawStatus(true);
+            setGameOver(true)
+        }
+        else{
+            changeActiveIcon();
         }
     }
 
@@ -114,10 +115,10 @@ export default function PlayBoard({currentPlayer, setCurrentPlayer, setGameOver,
 
 const styles = StyleSheet.create({
     PlayField:{
-        flex: 1,
+        marginTop: 50,
         padding: 10,
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
     },
     Row: {
         height: 75,

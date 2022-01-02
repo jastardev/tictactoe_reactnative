@@ -1,14 +1,15 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from "react-navigation-stack";
-import HomeScreen from './src/screens/HomeScreen';
-
+import GameScreen from './src/screens/GameScreen';
+import StartScreen from './src/screens/StartScreen';
 
 const navigator = createStackNavigator(
     {
-        Home: HomeScreen
+        StartScreen: StartScreen,
+        GameScreen: GameScreen
     },
     {
-        initialRouteName: "Home",
+        initialRouteName: "StartScreen",
         defaultNavigationOptions:{
             title: "Tic Tac Toe"
         },
