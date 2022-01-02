@@ -38,6 +38,7 @@ function GameScreen({navigation}){
 
     function resetGame(){
         setGameOver(false);
+        setDrawStatus(false);
         setIcons([<Text/>,<Text/>,<Text/>,<Text/>,<Text/>,<Text/>,<Text/>,<Text/>]);
         setGameState(["", "", "", "", "", "", "", "", ""]);
         setCurrentIcon("x");

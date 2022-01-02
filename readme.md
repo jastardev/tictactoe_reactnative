@@ -39,9 +39,8 @@ Tic Tac Toe game using React Native that demonstrates many beginner level React 
 </ol>
 <br>
 <br>
-<br>
 <p>I also want to thank Borna Šepić for the excellent tutorial covering the logic on how to determine a winning play. His tutorial can be found at: https://dev.to/bornasepic/pure-and-simple-tic-tac-toe-with-javascript-4pgn
 </p>
 <br>
-Additionally, nemo011 from StudyTonight.com on a creative way to draw the gameboard without manually setting bordered for each square. This article can be found at: https://www.studytonight.com/post/building-a-tic-tac-toe-game-in-javascript
+Additionally, nemo011 from StudyTonight.com on a creative way to draw the gameboard without manually setting borders for each square. This article can be found at: https://www.studytonight.com/post/building-a-tic-tac-toe-game-in-javascript
 
